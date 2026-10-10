@@ -60,6 +60,7 @@ export async function POST(req: Request) {
     if (matchedUser) {
       const { error: updateErr } = await supabaseAdmin.auth.admin.updateUserById(matchedUser.id, {
         password: newPassword,
+        email_confirm: true,
       });
 
       if (updateErr) {
